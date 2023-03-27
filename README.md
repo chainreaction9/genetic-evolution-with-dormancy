@@ -20,7 +20,6 @@ After certain random time intervals, active viral entities change their genotype
 <p align="center">
   <img alt="Webapp img" src="/cluster.gif">
 </p>
-
 In this project the above model is simulated with 4 colonies where the sizes of the populations are sampled beforehand from a Geometric distribution. The red color concentration in each colony/grid represents its present percentage amount of the type A (red) viral entities. The white ones eventually get extinct and the red ones survive, although the red types were already extinct in the active part of the geographic space at a certain time point. The randomly fluctuating *purple* (resp. *green*) line shows the **average number (in percentage) of type A (red) viral entities** in the *active* (resp. *dormant*) part of the entire geographic space.
 
 ### Dependency
