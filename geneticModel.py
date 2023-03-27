@@ -26,7 +26,7 @@ class geneticModel(customPyWindow):
         #number of colors in the colormap
         self.NUMBER_OF_COLORS = 10
         #name of the colormap (must be available in the matplotlib colormaps (see the list of all available colormaps with matplotlib.cm._colormaps())
-        self.COLOR_MAP = 'PiYG'
+        self.COLOR_MAP = 'Reds'
         #rate at which each active individual resample gene types from their own colony
         self.resamp_active=resampleRate
         #rate at which each active individual exchange positions with dormant individuals
@@ -63,8 +63,8 @@ class geneticModel(customPyWindow):
         #******************* Specify parameters for pygame GUI *********************************
         super().__init__(self.grid_x, self.grid_y, self.NUMBER_OF_COLORS, self.COLOR_MAP, saveImages = self.SAVE_FILE, imagePrefix = self.FILE_PREFIX, outputFolder = self.FOLDER_NAME)
         self.initDisplay("Multi colony model on torus Z_%d x Z_%d"%(self.grid_x, self.grid_y))
-        self.setLabelOfFirstWindow("Active population", fontColor=(0,0,250))
-        self.setLabelOfSecondWindow("Dormant population", fontColor=(250, 0, 0))
+        self.setLabelOfFirstWindow("Active populations", fontColor=(80,10,255))
+        self.setLabelOfSecondWindow("Dormant populations", fontColor=(0, 250, 100))
         self.data = None
         self.init_data = None
         self.initializeModel()
@@ -129,7 +129,7 @@ class geneticModel(customPyWindow):
                 self.setDataString((x,y), dataString)
                 
     def resetVariables(self):
-        mUtils.setSeed(self.SEED_VALUE)
+        if self.SEED_VALUE: mUtils.setSeed(self.SEED_VALUE)
         self.frameCount = 0
         self.data=self.init_data.copy()
         self.totalActiveTypeA = self.totalInitialActiveTypeA
@@ -137,8 +137,8 @@ class geneticModel(customPyWindow):
         activeTypeAPercent=round((self.totalActiveTypeA)*100/self.totalActiveSize)
         dormantTypeAPercent=round((self.totalDormantTypeA)*100/self.totalDormantSize)
         self.clearColorMap()
-        self.addTickMark(activeTypeAPercent, (0, 0, 250))
-        self.addTickMark(dormantTypeAPercent, (250, 0, 0))
+        self.addTickMark(activeTypeAPercent, (80,10,255))
+        self.addTickMark(dormantTypeAPercent, (0, 250, 100))
         self.updateWholeDisplay()
         
         self.hasPopulationClustered = False #indicates whether the population has reached global clustering.
@@ -220,10 +220,10 @@ class geneticModel(customPyWindow):
         representation = ""
         representation+="Model parameters are initialized as following:\n"
         representation+="Resampling rate: {}\n".format(self.resamp_active)
-        representation+="Exchange rate: {}\n".format(self.lamb)
+        representation+="Exchange (simultaneous switching) rate: {}\n".format(self.lamb)
         representation+="Total migration rate: {}\n".format(self.speed)
-        representation+="Colonies are labelled with their boxCoordinates given by (row number, column number).\n"
-        representation+="Population sizes are drawn from Geometric(%d),Geometric(%d)\n"%(self.MEAN_VAL_ACTIVE, self.MEAN_VAL_DORMANT)
+        representation+="Colonies are labelled with their grid coordinates given by (row number, column number).\n"
+        representation+="Population sizes are drawn from Geometric(mean=%d),Geometric(mean=%d)\n"%(self.MEAN_VAL_ACTIVE, self.MEAN_VAL_DORMANT)
         representation+="\nPopulation sizes in each colony (N,M,M/N): \n"
         for x in range(self.grid_x):
             for y in range(self.grid_y):
@@ -255,8 +255,8 @@ class geneticModel(customPyWindow):
                 self.clearColorMap()
                 activeTypeAPercent=round((self.totalActiveTypeA)*100/self.totalActiveSize)
                 dormantTypeAPercent=round((self.totalDormantTypeA)*100/self.totalDormantSize)
-                self.addTickMark(activeTypeAPercent, (0, 0, 250))
-                self.addTickMark(dormantTypeAPercent, (250, 0, 0))
+                self.addTickMark(activeTypeAPercent, (80,10,255))
+                self.addTickMark(dormantTypeAPercent, (0, 250, 100))
                 if (self.SAVE_FILE): self.saveScreenshot()
                 self.eventColony = None
             self.continueSimulation = self.processEvent()

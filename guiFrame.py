@@ -296,7 +296,6 @@ class customPyWindow():
             h = btnHandle.getHeight()
             pygame.draw.rect(copy_window,(255,255,255),(left, top, w, h))
         copy_window.fill((255,255,255),pygame.Rect(self.__leftBottomOfButtonWindow[0], 2*self.padding[0]+self.resolution[1],round(0.5*self.owin_3.width),self.owin_3.height-self.color_win.get_rect().height))
-        #copy_window.fill((255,255,255),pygame.Rect(self.padding[0]+5,15+2*self.padding[0]+self.resolution[1],300,110))
         pygame.image.save(copy_window,"./%s/%s-%d.png"%(self.FOLDER_NAME,self.FILE_PREFIX,self.frameCount))
         return True
         

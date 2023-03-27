@@ -22,4 +22,4 @@ for name in filenames:
         image = imageio.v3.imread(os.path.join(pathToImageFiles,name))
         frames.append(image)
         
-imageio.mimsave("{}.gif".format(outputFileName), frames, duration = 0.01)
+imageio.mimsave("{}.gif".format(outputFileName), frames, duration = 0.01, loop=1)
