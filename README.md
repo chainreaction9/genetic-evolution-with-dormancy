@@ -18,9 +18,9 @@ After certain random time intervals, active viral entities change their genotype
 
 ## Simulation
 <p align="center">
-  <img alt="Webapp img" src="/cluster.gif">
+  <img alt="Webapp img" src="/cluster.gif"/>
 </p>
-In this project the above model is simulated with 4 colonies where the sizes of the populations are sampled beforehand from a Geometric distribution. The red color concentration in each colony/grid represents its present percentage amount of the type A (red) viral entities. The white ones eventually get extinct and the red ones survive, although the red types were already extinct in the active part of the geographic space at a certain time point. The randomly fluctuating *purple* (resp. *green*) line shows the **average number (in percentage) of type A (red) viral entities** in the *active* (resp. *dormant*) part of the entire geographic space.
+In this project the above model is simulated with 4 colonies where the sizes of the populations are sampled beforehand from a Geometric distribution. The red color concentration in each colony/grid represents its present percentage amount of the type A (red) viral entities. The white ones eventually get extinct and the red ones survive, although the red types were already extinct in the active part of the geographic space at a certain time point. The randomly fluctuating <i>purple</i> (resp. <i>green</i>) line shows the <strong>average number (in percentage) of type A (red) viral entities</strong> in the <i>active</i> (resp. <i>dormant</i>) part of the entire geographic space.
 
 ### Dependency
 To run the simulation the following dependencies must be available in the python (minimum version 3.0) dev environment.
@@ -38,7 +38,7 @@ To play the simulation, run the following command from the project root director
 ```
 python geneticModel.py
 ```
-To save images from the simulation, one can set the 'Save image' flag to True and make sure that the output directory defined by the `FOLDER_NAME` variable (is set to "image" by default) already exists. These images can later be used to create a GIF using the provided python script 'generateGIF.py'.
+To save images from the simulation, one can set the &ldquo;Save image&rdquo; flag to True and make sure that the output directory defined by the `FOLDER_NAME` variable (is set to &ldquo;image&rdquo; by default) already exists. These images can later be used to create a GIF using the provided python script &ldquo;generateGIF.py&rdquo;.
 
 ## Acknowledgements
 The genetic model considered here was analyzed as a part of the author's doctoral thesis and is based on the following joint works with his supervisors and collaborators:
