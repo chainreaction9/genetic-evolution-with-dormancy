@@ -19,9 +19,9 @@ class geneticModel(customPyWindow):
         self.MEAN_VAL_ACTIVE=meanActiveSize
         #average number (E[M_i]) of total individuals in each dormant population
         self.MEAN_VAL_DORMANT=meanDormantSize
-        #average density of type A (green) individuals in each active population
+        #average density of type A (red) individuals in each active population
         self.MEAN_DENSITY_ACTIVE=meanActiveDensity
-        #average density of type A (green) individuals in each dormant population
+        #average density of type A (red) individuals in each dormant population
         self.MEAN_DENSITY_DORMANT=meanDormantDensity
         #number of colors in the colormap
         self.NUMBER_OF_COLORS = 10
@@ -275,8 +275,8 @@ class geneticModel(customPyWindow):
             self.prob_lst, self.rate=self.get_next_event()
             if (self.rate == 0):
                 self.hasPopulationClustered = True
-                fixatedType = "Type B (Purple)"
-                if self.data[(0,0)][0] > 0: fixatedType = "Type A (Green)"
+                fixatedType = "Type B (Red)"
+                if self.data[(0,0)][0] > 0: fixatedType = "Type A (Red)"
                 print("Clustering occurred at frame number: {}. Fixated type: {}".format(self.frameCount, fixatedType))
                 continue
             self.frameCount += 1

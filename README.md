@@ -3,9 +3,9 @@ A genetic model with dormancy
 
 If you are here after watching this [simulation](https://chainserver.pythonanywhere.com/hiv-dormancy), you may have found the variations in activity level of the viral motions rather strange:
 <i>
-the purple ones are vigorously moving in the 3D space, whereas the green ones stay still!
+the purple ones are moving in the 3D space in a spontaneous manner, whereas the green ones stay still!
 </i>
-What's even more interesting is that a purple virus may turn into a green one and vice versa. The purple ones can also give birth to new offsprings until they exhaust  the viral capacity of the geographic space. The motivation for considering such a system comes from *microbial dormancy*, a biological trait where organisms enter into a state of reduced or no activity at all.
+What's even more interesting is that a purple virus may turn into a green one and vice versa. The purple ones can also give birth to new offsprings until they exhaust the viral capacity of the geographic space. The motivation for considering such a system comes from *microbial dormancy*, a biological trait where organisms enter into a state of reduced or no activity at all.
 In our case a key characteristic of the green type of virus is that it stays at the same initial geographic position up to the time before turning back into a purple one again. This can also be modified to incorporate *soft dormancy* by allowing the green types move at a potentially slower speed than the purple ones.
 The way the transformation from one type of virus to the other occurs is quite simple, well, at least mathematically so if not biologically: each purple virus is assigned a time interval of random length having an exponential distribution of mean 1 during which the virus performs Brownian motion in the 3D space; after the end of the time interval it becomes green or rather *dormant* per se, and is assigned a new time interval of random length at the end of which it turns back into the purple type again.
 This model, although looks good in the [simulation](https://chainserver.pythonanywhere.com/hiv-dormancy), does not incorporate either soft dormancy or interactions among the viral entities. In real life the situation is far more complicated, even more so when there is an underlying **network structure** via which the viral entities influence each other.
